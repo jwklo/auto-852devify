@@ -60,6 +60,7 @@ import { calcuateMaskPosition, getMaskDimension } from '@/components/methods/cal
 ### getMaskDimension(mask: HTMLImageElement, widthAdjust: number = 1)
 - Getting mask dimension for calculation use.
 - mask: HTMLImageElement object from mask uri
+- widthAdjust: Width adjust ratio for the mask
 - return
 ```
 {width, height, widthAdjust}

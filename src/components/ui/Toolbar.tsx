@@ -2,7 +2,7 @@
 import { atom, useAtomValue, useSetAtom } from 'jotai';
 import { InputData } from '../types';
 import { ImageAtom } from '../atomValues';
-import { masks } from '../masks';
+import { masks } from '../../settings/masks';
 export function Toolbar() {
     const imgbtnStyle = { "width": "50px" };
     const setImageAtom = useSetAtom(ImageAtom);

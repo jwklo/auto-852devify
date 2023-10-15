@@ -63,7 +63,6 @@ export function OutputCanvas({
     showLandmarks = false,
     showMask = true,
     photoTitle,
-    maskSize = 1,
     maskAdjust = 1,
     ...props
 }: HTMLAttributes<HTMLCanvasElement> & {
@@ -75,7 +74,6 @@ export function OutputCanvas({
     showLandmarks: boolean;
     photoTitle?: string | null | undefined;
     showMask?: boolean;
-    maskSize?: number;
     maskAdjust: number
 }) {
     const ref = useRef<HTMLCanvasElement>(null);
@@ -110,7 +108,7 @@ export function OutputCanvas({
             if (showMask) {
                 const maskDimension = getMaskDimension(glasses, maskAdjust);
                 for (const face of detections) {
-                    let [midX, midY, width, height, angle, hscale] = calcuateMaskPosition(face.landmarks, maskSize, maskDimension);
+                    let [midX, midY, width, height, angle, hscale] = calcuateMaskPosition(face.landmarks, maskDimension);
                     drawRotatedImage(context, glasses, midX, midY, width, height, angle, hscale);
                 }
             }

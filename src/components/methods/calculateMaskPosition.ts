@@ -14,7 +14,7 @@ export function getMaskDimension(mask: HTMLImageElement, widthAdjust: number = 1
 }
 
 
-export function calcuateMaskPosition(landmarks: faceapi.FaceLandmarks68,maskSize: number, maskDimension: any) {
+export function calcuateMaskPosition(landmarks: faceapi.FaceLandmarks68, maskDimension: any) {
     const leftEyeMid = middlePoint(landmarks.getLeftEye());
     const rightEyeMid = middlePoint(landmarks.getRightEye());
     const leftEye = landmarks.positions[36];
@@ -37,7 +37,7 @@ export function calcuateMaskPosition(landmarks: faceapi.FaceLandmarks68,maskSize
     const dy = rightFace.y - leftFace.y;
     const angle = Math.atan2(dy, dx) * hscale;
     //const width = Math.abs(leftEyeMid.x - rightEyeMid.x) * GLASSES_SCALE_FACTOR;
-    const width = Math.abs(leftFaceMid.x - rightFaceMid.x) * maskDimension.widthAdjust * maskSize;
+    const width = Math.abs(leftFaceMid.x - rightFaceMid.x) * maskDimension.widthAdjust;
     const height = Math.abs(width * maskDimension.height / maskDimension.width);
     //const mxAbject = width * 0.2 * hscale;
     //let [midX, midY, width, height, angle, hscale] = cacluateMaskPosition(face.landmarks)
